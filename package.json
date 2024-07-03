@@ -5,7 +5,7 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "start": "forever start -o out.log -e err.log lineaCultureOnchain.js"
+    "start": "forever start -o out.log -e err.log lineaCultureSzn.js"
   },
   "repository": {
     "type": "git",
