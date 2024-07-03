@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+wallets.txt
+package-lock.json
+config.js
+*.log
+*secret*
+*SECRET*

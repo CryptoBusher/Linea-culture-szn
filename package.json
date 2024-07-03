@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "linea-culture-szn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "start": "forever start -o out.log -e err.log lineaCultureOnchain.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CryptoBusher/Linea-culture-szn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CryptoBusher/Linea-culture-szn/issues"
+  },
+  "homepage": "https://github.com/CryptoBusher/Linea-culture-szn#readme",
+  "dependencies": {
+    "ethers": "^6.10.0",
+    "forever": "^4.0.3",
+    "https-proxy-agent": "^7.0.2",
+    "node-fetch": "^3.3.2",
+    "winston": "^3.11.0",
+    "dotenv": "^16.4.1"
+  }
+}
