@@ -50,7 +50,7 @@ export class ClutchPlay {
             throw Error(`Mint fee is ${fee} but ${maxMintFee} expected`);
         }
 
-        const ipfsLink = await this.#generateIpfsLink(nftName);
+        const ipfsLink = this.#generateRandomIPFSLink(nftName);
 
         const estimatedGasLimit = await contract.safeMint.estimateGas(
             this.signer.address,
@@ -69,11 +69,19 @@ export class ClutchPlay {
         return await receipt.hash;
     }
 
+    #generateRandomIPFSLink() {
+        // dummy method as website is down
+        const baseURL = 'https://ipfs.clutchplay.ai/ipfs/';
+        const prefix = 'Qm';
+        const length = 44;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        
+        const randomHash = prefix + Array.from({ length }, () => randomChoice(characters)).join('');
+        return baseURL + randomHash;
+    }
+
     async #generateIpfsLink(nftName) {
-        // return 'https://ipfs.clutchplay.ai/ipfs/QmZWS2JtreLb5QJbJ3gz3bV1zcY3V8hR7DvsKtuQe9JFQi';
-
         const ipfsData = ClutchPlay.LAUNCHPAD_INFO[nftName].ipfsData;
-
         const url = `https://beta.api.clutchplay.ai/generate`;
 
         const headers = {
