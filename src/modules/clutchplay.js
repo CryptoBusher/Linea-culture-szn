@@ -12,8 +12,8 @@ export class ClutchPlay {
     static LAUNCHPAD_INFO = {
         crazyGang: {
             contractData: {
-                address: "0xB8DD4f5Aa8AD3fEADc50F9d670644c02a07c9374";
-                abi: JSON.parse(fs.readFileSync('./src/abi/crazyGangToken.json', "utf8"));
+                address: "0xB8DD4f5Aa8AD3fEADc50F9d670644c02a07c9374",
+                abi: JSON.parse(fs.readFileSync('./src/abi/crazyGangToken.json', "utf8"))
             },
             ipfsData: {
                 campaign_id: "667676dae890dc210aec58a4",

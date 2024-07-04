@@ -6,6 +6,7 @@ import { logger } from './src/logger/logger.js';
 import { TelegramBot } from './src/modules/telegram.js';
 import { ElementLaunchpad } from './src/modules/elementLaunchpad.js';
 import { ClutchPlay } from './src/modules/clutchplay.js';
+import { Phosphor } from "./src/modules/phosphor.js";
 import { txtToArray, addLineToTxt, randomChoice, sleep, randInt, removeLineFromTxt, changeProxyIp, generateProviderAndSigner } from './src/utils/helpers.js'
 
 
@@ -43,7 +44,8 @@ const getRandomWalletData = () => {
 const getLaunchpad = (nftName, provider, signer, gasLimitMultipliers, proxy) => {
     const launchpads = [
         ElementLaunchpad,
-        ClutchPlay
+        ClutchPlay,
+        Phosphor
     ];
 
     for (const launchpad of launchpads) {
