@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 
 export const config = {
-    nftToMint: 'crazyGang',                                     // 'massiveOne', 'crazyGang'
+    nftToMint: 'crazyGang',                                     // 'massiveOne', 'crazyGang', 'push'
     rpc: process.env.LINEA_RPC,                                 // Нода, подтягивается из .env файла
     generalProxy: {
         address: process.env.GENERAL_PROXY_ADDRESS,             // Прокси, подтягивается из .env файла

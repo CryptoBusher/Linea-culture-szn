@@ -9,14 +9,11 @@ import { randFloat, randInt, txtToArray, randomChoice } from "../utils/helpers.j
 
 
 export class ClutchPlay {
-    static CRAZY_GANG_TOKEN_ADDRESS = "0xB8DD4f5Aa8AD3fEADc50F9d670644c02a07c9374";
-    static CRAZY_GANG_TOKEN_ABI = JSON.parse(fs.readFileSync('./src/abi/crazyGangToken.json', "utf8"));
- 
     static LAUNCHPAD_INFO = {
         crazyGang: {
             contractData: {
-                address: ClutchPlay.CRAZY_GANG_TOKEN_ADDRESS,
-                abi: ClutchPlay.CRAZY_GANG_TOKEN_ABI
+                address: "0xB8DD4f5Aa8AD3fEADc50F9d670644c02a07c9374";
+                abi: JSON.parse(fs.readFileSync('./src/abi/crazyGangToken.json', "utf8"));
             },
             ipfsData: {
                 campaign_id: "667676dae890dc210aec58a4",
