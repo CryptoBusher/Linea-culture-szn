@@ -7,7 +7,7 @@ import { randFloat } from "../utils/helpers.js";
 
 
 export class Nfts2me {
-    static STANDARD_TOKEN_ABI = JSON.parse(fs.readFileSync('./src/abi/wizardsToken.json', "utf8"))
+    static STANDARD_TOKEN_ABI = JSON.parse(fs.readFileSync('./src/abi/nfts2MeToken.json', "utf8"))
     static LAUNCHPAD_INFO = {
         wizards: {
             contractData: {
