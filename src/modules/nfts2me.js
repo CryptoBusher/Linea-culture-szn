@@ -7,11 +7,18 @@ import { randFloat } from "../utils/helpers.js";
 
 
 export class Nfts2me {
+    static STANDARD_TOKEN_ABI = JSON.parse(fs.readFileSync('./src/abi/wizardsToken.json', "utf8"))
     static LAUNCHPAD_INFO = {
         wizards: {
             contractData: {
                 address: "0xD540038B0B427238984E0341bA49F69CD80DC139",
-                abi: JSON.parse(fs.readFileSync('./src/abi/wizardsToken.json', "utf8"))
+                abi: Nfts2me.STANDARD_TOKEN_ABI
+            }
+        },
+        eFrogs: {
+            contractData: {
+                address: "0xf4AA97cDE2686Bc5ae2Ee934a8E5330B8B13Be64",
+                abi: Nfts2me.STANDARD_TOKEN_ABI
             }
         }
     }
