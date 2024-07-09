@@ -20,6 +20,12 @@ export class Nfts2me {
                 address: "0xf4AA97cDE2686Bc5ae2Ee934a8E5330B8B13Be64",
                 abi: Nfts2me.STANDARD_TOKEN_ABI
             }
+        },
+        satoshi: {
+            contractData: {
+                address: "0xc0A2a606913A49a0B0a02F682C833EFF3829B4bA",
+                abi: Nfts2me.STANDARD_TOKEN_ABI
+            }
         }
     }
 
