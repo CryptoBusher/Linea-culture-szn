@@ -18,6 +18,15 @@ export class ElementLaunchpad {
                 additional: [],
                 data: '0x'
             }
+        },
+        linusEggs: {
+            mintArgs: {
+                undefArg: '0x0c21cfbb',
+                launchpadId: '0x1ffca9db',
+                slotId: 0,
+                additional: [],
+                data: '0x'
+            }
         }
     }
 
