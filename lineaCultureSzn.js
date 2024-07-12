@@ -11,6 +11,7 @@ import { ClutchPlay } from './src/modules/clutchplay.js';
 import { Phosphor } from "./src/modules/phosphor.js";
 import { Nfts2me } from "./src/modules/nfts2me.js";
 import { Yooldo } from "./src/modules/yooldo.js";
+import { ACG } from "./src/modules/acg.js";
 import { txtToArray, addLineToTxt, randomChoice, sleep, randInt, removeLineFromTxt, changeProxyIp, generateProviderAndSigner } from './src/utils/helpers.js'
 
 
@@ -51,7 +52,8 @@ const getLaunchpad = (nftName, provider, signer, gasLimitMultipliers, proxy) => 
         ClutchPlay,
         Phosphor,
         Nfts2me,
-        Yooldo
+        Yooldo,
+        ACG
     ];
 
     for (const launchpad of launchpads) {

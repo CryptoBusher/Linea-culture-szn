@@ -23,7 +23,8 @@
 - ~~satoshi~~
 - ~~linusEggs~~
 - ~~yoolia~~
-- **frogWars**
+- ~~frogWars~~
+- **tcom**
 
 
 ## ⚙️ Как подтягивать обновления

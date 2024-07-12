@@ -77,7 +77,7 @@ export class ElementLaunchpad {
 
         const args = ElementLaunchpad.LAUNCHPAD_INFO[nftName].mintArgs;
 
-        const mintedAmount = this.contract.getAlreadyBuyBty(
+        const mintedAmount = await this.contract.getAlreadyBuyBty(
             this.signer.address,
             args.launchpadId,
             args.slotId

@@ -67,7 +67,7 @@ export class Nfts2me {
         const contractData = Nfts2me.LAUNCHPAD_INFO[nftName].contractData;
         const contract = new ethers.Contract(contractData.address, contractData.abi, this.signer);
 
-        const mintedAmount = contract.balanceOf(this.signer.address);
+        const mintedAmount = await contract.balanceOf(this.signer.address);
         return await mintedAmount == 0 ? false : true;
     }
 }

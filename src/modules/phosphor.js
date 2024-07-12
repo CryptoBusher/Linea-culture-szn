@@ -48,8 +48,8 @@ export class Phosphor {
 
         const maxMintFeeWei = BigInt(10000000000000);
         const value = await contract.getTransactionFee();
-        if (value > maxMintFeeWei) {
-            throw Error(`Mint fee is ${fee} but ${maxMintFeeWei} expected`);
+        if (await value > maxMintFeeWei) {
+            throw Error(`Mint fee is ${value} but ${maxMintFeeWei} expected`);
         }
 
         const mintArgs = Phosphor.LAUNCHPAD_INFO[nftName].mintArgs;
@@ -86,7 +86,7 @@ export class Phosphor {
         const contractData = Phosphor.LAUNCHPAD_INFO[nftName].contractData;
         const contract = new ethers.Contract(contractData.address, contractData.abi, this.signer);
 
-        const mintedAmount = contract.balanceOf(this.signer.address, Phosphor.LAUNCHPAD_INFO[nftName].mintArgs._tokenId);
+        const mintedAmount = await contract.balanceOf(this.signer.address, Phosphor.LAUNCHPAD_INFO[nftName].mintArgs._tokenId);
         return await mintedAmount == 0 ? false : true;
     }
 }

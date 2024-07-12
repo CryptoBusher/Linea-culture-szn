@@ -37,14 +37,14 @@ export class ClutchPlay {
     async mintNft(nftName) {
         logger.debug(`Trying to mint ${nftName}`);
 
-        const maxMintFee = BigInt(120000000000000);
-
         const contractData = ClutchPlay.LAUNCHPAD_INFO[nftName].contractData;
         const contract = new ethers.Contract(contractData.address, contractData.abi, this.signer);
 
+        const maxMintFee = BigInt(120000000000000);
         const value = await contract.mintFee();
-        if (value > maxMintFee) {
-            throw Error(`Mint fee is ${fee} but ${maxMintFee} expected`);
+        
+        if (await value > maxMintFee) {
+            throw Error(`Mint fee is ${value} but ${maxMintFee} expected`);
         }
 
         const ipfsLink = this.#generateRandomIPFSLink(nftName);
@@ -149,7 +149,7 @@ export class ClutchPlay {
         const contractData = ClutchPlay.LAUNCHPAD_INFO[nftName].contractData;
         const contract = new ethers.Contract(contractData.address, contractData.abi, this.signer);
 
-        const mintedAmount = contract.balanceOf(this.signer.address);
+        const mintedAmount = await contract.balanceOf(this.signer.address);
         return await mintedAmount == 0 ? false : true;
     }
 }
