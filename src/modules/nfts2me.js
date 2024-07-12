@@ -26,6 +26,12 @@ export class Nfts2me {
                 address: "0xc0A2a606913A49a0B0a02F682C833EFF3829B4bA",
                 abi: Nfts2me.STANDARD_TOKEN_ABI
             }
+        },
+        frogWars: {
+            contractData: {
+                address: "0x32DeC694570ce8EE6AcA08598DaEeA7A3e0168A3",
+                abi: Nfts2me.STANDARD_TOKEN_ABI
+            }
         }
     }
 
