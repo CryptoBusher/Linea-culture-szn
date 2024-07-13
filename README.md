@@ -24,7 +24,8 @@
 - ~~linusEggs~~
 - ~~yoolia~~
 - ~~frogWars~~
-- **tcom**
+- ~~tcom~~
+- **toads**
 
 
 ## ⚙️ Как подтягивать обновления
