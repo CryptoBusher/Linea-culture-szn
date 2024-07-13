@@ -95,6 +95,8 @@ export const changeProxyIp = async (link, delay) => {
 export const generateProviderAndSigner = (privateKey, rpc, proxy=undefined) => {
     let fetchRequest = undefined;
     if (proxy) {
+        console.log(`Using proxy ${proxy}`)
+        console.log(`Using RPC ${rpc}`)
         fetchRequest = new FetchRequest(rpc);
         fetchRequest.getUrlFunc = FetchRequest.createGetUrlFunc({
 			agent: new HttpsProxyAgent(proxy),
@@ -102,7 +104,9 @@ export const generateProviderAndSigner = (privateKey, rpc, proxy=undefined) => {
     };
 
     const provider = new JsonRpcProvider(fetchRequest ? fetchRequest : rpc);
+    console.log(`Generated provider`)
     const signer = new ethers.Wallet(privateKey, provider);
+    console.log(`Generated signer`)
 
     return [provider, signer];
 };
