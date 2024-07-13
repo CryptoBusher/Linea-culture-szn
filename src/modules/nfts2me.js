@@ -32,6 +32,12 @@ export class Nfts2me {
                 address: "0x32DeC694570ce8EE6AcA08598DaEeA7A3e0168A3",
                 abi: Nfts2me.STANDARD_TOKEN_ABI
             }
+        },
+        toads: {
+            contractData: {
+                address: "0x0841479e87Ed8cC7374d3E49fF677f0e62f91fa1",
+                abi: Nfts2me.STANDARD_TOKEN_ABI
+            }
         }
     }
 
