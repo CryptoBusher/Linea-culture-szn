@@ -27,6 +27,15 @@ export class ElementLaunchpad {
                 additional: [],
                 data: '0x'
             }
+        },
+        ascendTheEnd: {
+            mintArgs: {
+                undefArg: '0x0c21cfbb',
+                launchpadId: '0x19a747c1',
+                slotId: 0,
+                additional: [],
+                data: '0x'
+            }
         }
     }
 
