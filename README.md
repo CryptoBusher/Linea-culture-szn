@@ -26,7 +26,8 @@
 - ~~frogWars~~
 - ~~tcom~~
 - ~~toads~~
-- **ascendTheEnd**
+- ~~ascendTheEnd~~
+- **samuel**
 
 
 ## ⚙️ Как подтягивать обновления
