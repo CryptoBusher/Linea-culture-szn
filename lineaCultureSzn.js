@@ -12,6 +12,7 @@ import { Phosphor } from "./src/modules/phosphor.js";
 import { Nfts2me } from "./src/modules/nfts2me.js";
 import { Yooldo } from "./src/modules/yooldo.js";
 import { ACG } from "./src/modules/acg.js";
+import { SendingMe } from "./src/modules/sendingMe.js"
 import { txtToArray, addLineToTxt, randomChoice, sleep, randInt, removeLineFromTxt, changeProxyIp, generateProviderAndSigner } from './src/utils/helpers.js'
 
 
@@ -53,7 +54,8 @@ const getLaunchpad = (nftName, provider, signer, gasLimitMultipliers, proxy) => 
         Phosphor,
         Nfts2me,
         Yooldo,
-        ACG
+        ACG,
+        SendingMe
     ];
 
     for (const launchpad of launchpads) {
