@@ -27,7 +27,8 @@
 - ~~tcom~~
 - ~~toads~~
 - ~~ascendTheEnd~~
-- **samuel**
+- ~~samuel~~
+- **townStory**
 
 
 ## ⚙️ Как подтягивать обновления
