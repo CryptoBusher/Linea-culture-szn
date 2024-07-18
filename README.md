@@ -28,7 +28,8 @@
 - ~~toads~~
 - ~~ascendTheEnd~~
 - ~~samuel~~
-- **townStory**
+- ~~townStory~~
+- **kanVoyage**
 
 
 ## ⚙️ Как подтягивать обновления

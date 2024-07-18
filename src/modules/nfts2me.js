@@ -44,6 +44,12 @@ export class Nfts2me {
                 address: "0x8Ad15e54D37d7d35fCbD62c0f9dE4420e54Df403",
                 abi: Nfts2me.STANDARD_TOKEN_ABI
             }
+        },
+        kanVoyage: {
+            contractData: {
+                address: "0x3A21e152aC78f3055aA6b23693FB842dEFdE0213",
+                abi: Nfts2me.STANDARD_TOKEN_ABI
+            }
         }
     }
 
