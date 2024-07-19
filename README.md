@@ -29,7 +29,8 @@
 - ~~ascendTheEnd~~
 - ~~samuel~~
 - ~~townStory~~
-- **kanVoyage**
+- ~~kanVoyage~~
+- **demmortal**
 
 
 ## ⚙️ Как подтягивать обновления
