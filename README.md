@@ -30,7 +30,8 @@
 - ~~samuel~~
 - ~~townStory~~
 - ~~kanVoyage~~
-- **demmortal**
+- ~~demmortal~~
+- **foxy**
 
 
 ## ⚙️ Как подтягивать обновления
