@@ -2,7 +2,13 @@ import 'dotenv/config';
 
 
 export const config = {
-    nftToMint: '',                                              // massiveOne, crazyGang, push, wizards, eFrogs, satoshi, linusEggs, yoolia, frogWars, tcom, toads, ascendTheEnd, samuel, townStory, kanVoyage, demmortal, foxy
+    /*
+    massiveOne, crazyGang, push, wizards, eFrogs, satoshi, linusEggs, yoolia
+    frogWars, tcom, toads, ascendTheEnd, samuel, townStory, kanVoyage, demmortal
+    foxy, coopRecords
+    */
+    nftToMint: '',
+    
     rpc: process.env.LINEA_RPC,                                 // Нода, подтягивается из .env файла
     generalProxy: {
         address: process.env.GENERAL_PROXY_ADDRESS,             // Прокси, подтягивается из .env файла
