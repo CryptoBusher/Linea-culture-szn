@@ -10,6 +10,13 @@ import { randFloat, sleep, randInt } from "../utils/helpers.js";
 
 
 export class Phosphor {
+    static STANDARD_TOKEN_WITH_VOUCHER_ABI = JSON.parse(fs.readFileSync('./src/abi/phosphorTokenWithVoucher.json', "utf8"))
+    
+    static TOKENS_WITH_VOUCHER_IDS = {
+        coopRecords: 'fceb2be9-f9fd-458a-8952-9a0a6f873aff',
+        theSuperstars: '849e42a7-45dd-4a5b-a895-f5496e46ade2'
+    }
+    
     static LAUNCHPAD_INFO = {
         push: {
             contractData: {
@@ -33,7 +40,27 @@ export class Phosphor {
         coopRecords: {
             contractData: {
                 address: "0xAd626D0F8BE64076C4c27a583e3df3878874467E",
-                abi: JSON.parse(fs.readFileSync('./src/abi/coopRecordsToken.json', "utf8"))
+                abi: Phosphor.STANDARD_TOKEN_WITH_VOUCHER_ABI
+            },
+            mintArgs: {
+                voucher: {
+                    netRecipient: '0x0000000000000000000000000000000000000000',
+                    initialRecipient: '0x0000000000000000000000000000000000000000',
+                    initialRecipientAmount: 0,
+                    quantity: 1,
+                    nonce: 1,
+                    expiry: null,
+                    price: 0,
+                    tokenId: 1,
+                    currency: '0x0000000000000000000000000000000000000000'
+                },
+                signature: null
+            }
+        },
+        theSuperstars: {
+            contractData: {
+                address: "0x3f0A935c8f3Eb7F9112b54bD3b7fd19237E441Ee",
+                abi: Phosphor.STANDARD_TOKEN_WITH_VOUCHER_ABI
             },
             mintArgs: {
                 voucher: {
@@ -76,7 +103,7 @@ export class Phosphor {
         }
     }
 
-    async#getCoopRecordsProof() {
+    async #getVoucher(nftName) {
         const url = `https://public-api.phosphor.xyz/v1/purchase-intents`;
         const [secChUa, userAgent, platform] = this.#generateHeaders();
 
@@ -100,7 +127,7 @@ export class Phosphor {
             buyer: {
                 eth_address: this.signer.address
               },
-              listing_id: 'fceb2be9-f9fd-458a-8952-9a0a6f873aff',
+              listing_id: Phosphor.TOKENS_WITH_VOUCHER_IDS[nftName],
               provider: 'MINT_VOUCHER',
               quantity: 1
         };
@@ -146,8 +173,8 @@ export class Phosphor {
     async mintNft(nftName) {
         logger.debug(`Trying to mint ${nftName}`);
 
-        if (nftName == 'coopRecords') {
-            return await this.#mintCoopRecords();
+        if (nftName in Phosphor.TOKENS_WITH_VOUCHER_IDS) {
+            return await this.#mintTokenWithVoucher(nftName);
         }
 
         const contractData = Phosphor.LAUNCHPAD_INFO[nftName].contractData;
@@ -179,14 +206,14 @@ export class Phosphor {
         return await receipt.hash;
     };
 
-    async #mintCoopRecords() {
-        const contractData = Phosphor.LAUNCHPAD_INFO.coopRecords.contractData;
+    async #mintTokenWithVoucher(nftName) {
+        const contractData = Phosphor.LAUNCHPAD_INFO[nftName].contractData;
         const contract = new ethers.Contract(contractData.address, contractData.abi, this.signer);
 
-        const mintArgs = Phosphor.LAUNCHPAD_INFO.coopRecords.mintArgs;
-        const proof = await this.#getCoopRecordsProof()
-        mintArgs.voucher.expiry = proof.data.voucher.expiry
-        mintArgs.signature = proof.data.signature
+        const mintArgs = Phosphor.LAUNCHPAD_INFO[nftName].mintArgs;
+        const voucher = await this.#getVoucher(nftName);
+        mintArgs.voucher.expiry = voucher.data.voucher.expiry;
+        mintArgs.signature = voucher.data.signature;
 
         const mintArgsArray = Object.values(mintArgs);
 
@@ -212,10 +239,10 @@ export class Phosphor {
         const mintArgs = Phosphor.LAUNCHPAD_INFO[nftName].mintArgs;
 
         let tokenId;
-        if (nftName == 'push') {
-            tokenId = mintArgs._tokenId
-        } else if (nftName == 'coopRecords') {
-            tokenId = mintArgs.voucher.tokenId
+        if (nftName in Phosphor.TOKENS_WITH_VOUCHER_IDS) {
+            tokenId = mintArgs.voucher.tokenId;
+        } else {
+            tokenId = mintArgs._tokenId;
         }
 
         const mintedAmount = await contract.balanceOf(this.signer.address, tokenId);
