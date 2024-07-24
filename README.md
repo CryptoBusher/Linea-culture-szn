@@ -33,7 +33,8 @@
 - ~~demmortal~~
 - ~~foxy~~
 - ~~coopRecords~~
-- **theSuperstars**
+- ~~theSuperstars~~
+- **chroniclesOfTheStars**
 
 
 ## ⚙️ Как подтягивать обновления
