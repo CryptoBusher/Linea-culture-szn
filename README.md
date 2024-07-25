@@ -34,7 +34,8 @@
 - ~~foxy~~
 - ~~coopRecords~~
 - ~~theSuperstars~~
-- **chroniclesOfTheStars**
+- ~~chroniclesOfTheStars~~
+- **crux**
 
 
 ## ⚙️ Как подтягивать обновления

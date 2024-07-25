@@ -15,7 +15,8 @@ export class Phosphor {
     static TOKENS_WITH_VOUCHER_IDS = {
         coopRecords: 'fceb2be9-f9fd-458a-8952-9a0a6f873aff',
         theSuperstars: '849e42a7-45dd-4a5b-a895-f5496e46ade2',
-        chroniclesOfTheStars: '3d595f3e-6609-405f-ba3c-d1e28381f11a'
+        chroniclesOfTheStars: '3d595f3e-6609-405f-ba3c-d1e28381f11a',
+        crux: 'd3542d49-273c-4f2d-9d33-8904c773ed14'
     }
     
     static LAUNCHPAD_INFO = {
@@ -69,7 +70,7 @@ export class Phosphor {
                     initialRecipient: '0x0000000000000000000000000000000000000000',
                     initialRecipientAmount: 0,
                     quantity: 1,
-                    nonce: 1,
+                    nonce: null,
                     expiry: null,
                     price: 0,
                     tokenId: 1,
@@ -89,10 +90,30 @@ export class Phosphor {
                     initialRecipient: '0x0000000000000000000000000000000000000000',
                     initialRecipientAmount: 0,
                     quantity: 1,
-                    nonce: 1,
+                    nonce: null,
                     expiry: null,
                     price: 0,
                     tokenId: 3,
+                    currency: '0x0000000000000000000000000000000000000000'
+                },
+                signature: null
+            }
+        },
+        crux: {
+            contractData: {
+                address: "0x3EB78e881b28B71329344dF622Ea3A682538EC6a",
+                abi: Phosphor.STANDARD_TOKEN_WITH_VOUCHER_ABI
+            },
+            mintArgs: {
+                voucher: {
+                    netRecipient: '0x0000000000000000000000000000000000000000',
+                    initialRecipient: '0x0000000000000000000000000000000000000000',
+                    initialRecipientAmount: 0,
+                    quantity: 1,
+                    nonce: null,
+                    expiry: null,
+                    price: 0,
+                    tokenId: 1,
                     currency: '0x0000000000000000000000000000000000000000'
                 },
                 signature: null
@@ -181,6 +202,10 @@ export class Phosphor {
                     throw new Error('proof.data.signature does not exist');
                 }
 
+                if (!proof?.data?.voucher?.nonce) {
+                    throw new Error('proof.data.voucher.nonce does not exist');
+                }
+
                 return proof;
             } catch (e) {
                 logger.error(`Failed to get voucher, server response: ${e.message}, retrying after delay...`);
@@ -235,6 +260,7 @@ export class Phosphor {
         const voucher = await this.#getVoucher(nftName);
         mintArgs.voucher.expiry = voucher.data.voucher.expiry;
         mintArgs.signature = voucher.data.signature;
+        mintArgs.voucher.nonce = voucher.data.voucher.nonce
 
         const mintArgsArray = Object.values(mintArgs);
 
