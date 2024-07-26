@@ -16,7 +16,8 @@ export class Phosphor {
         coopRecords: 'fceb2be9-f9fd-458a-8952-9a0a6f873aff',
         theSuperstars: '849e42a7-45dd-4a5b-a895-f5496e46ade2',
         chroniclesOfTheStars: '3d595f3e-6609-405f-ba3c-d1e28381f11a',
-        crux: 'd3542d49-273c-4f2d-9d33-8904c773ed14'
+        crux: 'd3542d49-273c-4f2d-9d33-8904c773ed14',
+        stonez: '3c23e064-486d-46c5-8675-eabbc2e7d15e'
     }
     
     static LAUNCHPAD_INFO = {
@@ -114,6 +115,26 @@ export class Phosphor {
                     expiry: null,
                     price: 0,
                     tokenId: 1,
+                    currency: '0x0000000000000000000000000000000000000000'
+                },
+                signature: null
+            }
+        },
+        stonez: {
+            contractData: {
+                address: "0x3EB78e881b28B71329344dF622Ea3A682538EC6a",
+                abi: Phosphor.STANDARD_TOKEN_WITH_VOUCHER_ABI
+            },
+            mintArgs: {
+                voucher: {
+                    netRecipient: '0x0000000000000000000000000000000000000000',
+                    initialRecipient: '0x0000000000000000000000000000000000000000',
+                    initialRecipientAmount: 0,
+                    quantity: 1,
+                    nonce: null,
+                    expiry: null,
+                    price: 0,
+                    tokenId: 2,
                     currency: '0x0000000000000000000000000000000000000000'
                 },
                 signature: null

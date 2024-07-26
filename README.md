@@ -35,7 +35,8 @@
 - ~~coopRecords~~
 - ~~theSuperstars~~
 - ~~chroniclesOfTheStars~~
-- **crux**
+- ~~crux~~
+- **stonez**
 
 
 ## ⚙️ Как подтягивать обновления

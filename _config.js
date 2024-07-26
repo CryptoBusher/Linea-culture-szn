@@ -5,7 +5,7 @@ export const config = {
     /*
     massiveOne, crazyGang, push, wizards, eFrogs, satoshi, linusEggs, yoolia
     frogWars, tcom, toads, ascendTheEnd, samuel, townStory, kanVoyage, demmortal
-    foxy, coopRecords, theSuperstars, chroniclesOfTheStars, crux
+    foxy, coopRecords, theSuperstars, chroniclesOfTheStars, crux, stonez
     */
     nftToMint: '',
     
