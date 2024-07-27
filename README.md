@@ -36,7 +36,8 @@
 - ~~theSuperstars~~
 - ~~chroniclesOfTheStars~~
 - ~~crux~~
-- **stonez**
+- ~~stonez~~
+- **leColimacon**
 
 
 ## ⚙️ Как подтягивать обновления
